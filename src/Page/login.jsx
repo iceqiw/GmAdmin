@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
-import MainPanel from '../Component/common/mainPanel';
 import { connect } from 'react-redux'
+import { Link, IndexLink } from 'react-router';
 import { bindActionCreators } from 'redux'
 import * as actions from '../Redux/Action';
-class indexPage extends Component {
+class loginPage extends Component {
     constructor(props, context) {
         super(props, context);
     }
-
-    getInform = () => {
-        console.log(1)
-        this.props.test2('12','13','15');
-    };
 
     render() {
         //从组件的props属性中导入四个方法和一个变量
         const { increment, decrement, counter } = this.props;
         return (
-            <MainPanel title='index' >
-                Clicked: {counter} times
-                {' '}
-                <button onClick={increment}>+</button>
-                {' '}
-                <button onClick={decrement}>-</button>
-                {' '}
-                <input type="button" onClick={this.getInform} className="btn btn-primary" value="search" />
-            </MainPanel>
+            <div><IndexLink  to='/'><span>首页</span></IndexLink ></div>
         );
     }
 
@@ -47,5 +34,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 //通过react-redux提供的connect方法将我们需要的state中的数据和actions中的方法绑定到props上
-export default connect(mapStateToProps, mapDispatchToProps)(indexPage)
+export default connect(mapStateToProps, mapDispatchToProps)(loginPage)
 
