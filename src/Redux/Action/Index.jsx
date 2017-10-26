@@ -15,7 +15,7 @@ export const rok = (index, json)=> {
 
 export const test = (index, length, tag)=> {
     return dispatch => {
-        return fetch(`https://www.reddit.com/r/${index}.json`)
+        return fetch(`http://192.168.1.105:8080/ping`)
           .then(response => response.json())
           .then(json => dispatch(rok(index, json)))
       }
