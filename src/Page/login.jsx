@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link, IndexLink } from 'react-router';
 import { bindActionCreators } from 'redux'
-import * as actions from '../Redux/Action';
+import * as actions from '../Redux/Action/Index';
 class loginPage extends Component {
     constructor(props, context) {
         super(props, context);

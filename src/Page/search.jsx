@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MainPanel from '../Component/common/mainPanel';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions from '../Redux/Action';
+import * as actions from '../Redux/Action/Index';
 
 class searchPage extends Component {
     constructor(props, context) {
