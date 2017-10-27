@@ -10,3 +10,8 @@ export const testAPI2 = () => {
     let url = target + 'abj/ping';
     return actions.getData(url, {}, {}, "22222")
 }
+
+export const testAPI3 = (susscee) => {
+    let url = target + 'abj/ping';
+    return actions.getData(url, {}, susscee, "22223")
+}

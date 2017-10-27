@@ -11,7 +11,7 @@ class searchPage extends Component {
 
     getInform = () => {
         console.log(1)
-        this.props.test2('12','13','15');
+        
     };
 
     render() {
@@ -28,15 +28,13 @@ class searchPage extends Component {
 //将state.counter绑定到props的counter
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+       
     }
 };
 //将action的所有方法绑定到props上
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        increment:bindActionCreators(actions.increment,dispatch),
-        decrement:bindActionCreators(actions.decrement,dispatch),
-        test2:bindActionCreators(actions.test,dispatch)
+        
     }
 };
 

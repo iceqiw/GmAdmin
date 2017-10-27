@@ -13,6 +13,9 @@ export const requestData2 = (state = 0, action = {}) => {
     switch(action.type){
         case "22222":
             return state+1;
+        case "22223":
+            action.success(action.json)
+            return state-1;
         default:
             return state;
     }
