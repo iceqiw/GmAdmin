@@ -23,21 +23,16 @@ class indexPage extends Component {
         })
     };
 
-    componentWillMount() {
-        this.props.test2()
-    }
-
     render() {
         //从组件的props属性中导入四个方法和一个变量
         const {requestData,requestData2 } = this.props;
         return (
-            <MainPanel title='index' >
+            <MainPanel menuKey='index' title='首页' >
                  Clicked: {requestData2} times
                  hello: {requestData.message} 
                 <input type="button" onClick={this.getInform} className="btn btn-primary" value="search" />
                 <input type="button" onClick={this.getInform2} className="btn btn-primary" value="search2" />
-                <input type="button" onClick={this.getInform3} className="btn btn-primary" value="search3" />
-           
+                <input type="button" onClick={this.getInform3} className="btn btn-primary" value="search3" />        
             </MainPanel>
         );
     }

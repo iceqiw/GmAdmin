@@ -18,7 +18,8 @@ class searchPage extends Component {
         //从组件的props属性中导入四个方法和一个变量
         const { increment, decrement, counter } = this.props;
         return (
-            <MainPanel title='search' >
+            <MainPanel menuKey='index' title='搜索'  >
+                sdfsf
             </MainPanel>
         );
     }

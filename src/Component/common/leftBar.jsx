@@ -12,12 +12,19 @@ class SideBarMenuTree extends Component {
   }
 
   handleClick(index, e) {
+    console.log(this.state._active)
     if (this.state._active == 0) {
       this.setState({ _active: 1 })
     } else {
       this.setState({ _active: 0 })
     }
+  }
 
+  componentWillMount(nextProps, nextState) {
+    console.log(this.props.activekey)
+    if(this.props.Skey==this.props.activekey){
+      this.setState({ _active: 1 })
+    }
   }
 
   render() {
@@ -44,12 +51,12 @@ class SideBarMenu extends Component {
   render() {
     return (
       <ul className="sidebar-menu">
-        <li className="header">MAIN NAVIGATION</li>
-        <SideBarMenuTree name='测试功能' >
+        <li className="header">{this.props.menuKey}</li>
+        <SideBarMenuTree name='测试功能' Skey='index' activekey={this.props.menuKey} >
           <li><Link to='/index'><span>首页</span></Link></li>
           <li><Link to='/search'><span>搜索</span></Link></li>
         </SideBarMenuTree>
-        <SideBarMenuTree name='2222' >
+        <SideBarMenuTree name='图表' Skey='index2' activekey={this.props.menuKey} >
           <li><a href="/search"><i className="fa fa-circle-o"></i> Boxed</a></li>
           <li><Link to='/searchs'><span>search</span></Link></li>
           <li><Link to='/login'><span>login</span></Link></li>
@@ -76,22 +83,14 @@ export class SideBar extends Component {  //头部标题
         <section className="sidebar">
           <div className="user-panel">
             <div className="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+              <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" className="img-circle" alt="User Image" />
             </div>
             <div className="pull-left info">
               <p>后台管理系统</p>
               <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
-          <form action="#" method="get" className="sidebar-form">
-            <div className="input-group">
-              <input type="text" name="q" className="form-control" placeholder="Search..." />
-              <span className="input-group-btn">
-                <button type='submit' name='search' id='search-btn' className="btn btn-flat"><i className="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <SideBarMenu />
+          <SideBarMenu menuKey={this.props.menuKey} />
         </section>
       </aside>
     );

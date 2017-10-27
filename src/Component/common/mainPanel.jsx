@@ -16,11 +16,13 @@ export class MainPanel extends Component {  //头部标题
   render() {
     return (
       <div>
-        <Header title='index' />
-          <SideBar title='index' />
+        <Header title={this.props.title} />
+          <SideBar menuKey={this.props.menuKey}  />
           <div className="content-wrapper">
             <section className="content-header">
-              HOME
+              <h1>
+                {this.props.title}
+              </h1>
             </section>
             <section className="content">
               {this.props.children}
