@@ -1,18 +1,19 @@
-export const counter = (state = 0, action = {}) => {
-    let data = {};
-    switch (action.type) {
-        case 'INCREMENT_COUNTER':
-            console.log(state)
-            return state + 1;
-        case 'DECREMENT_COUNTER':
-            console.log(state)
-            return state - 1;
-        case 'DECREMENT_COUNTER2':
-            data = action.payload;
-            console.log(data)
-            return state - 1;
+//手动获取数据
+export const requestData = (state = {}, action = {}) => {
+    switch(action.type){
+        case "GET_DATA_SUCCESS":
+            state=action.json
+            return state;
         default:
-            console.log(state)
-            return state
+            return state;
+    }
+}
+
+export const requestData2 = (state = 0, action = {}) => {
+    switch(action.type){
+        case "22222":
+            return state+1;
+        default:
+            return state;
     }
 }

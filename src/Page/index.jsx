@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MainPanel from '../Component/common/mainPanel';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions from '../Redux/Action/Index';
+import * as actions from '../Api/adminApi';
+
 class indexPage extends Component {
     constructor(props, context) {
         super(props, context);
@@ -10,20 +11,17 @@ class indexPage extends Component {
 
     getInform = () => {
         console.log(1)
-        this.props.test2('12','13','15');
+        this.props.test2()
+        this.props.test3()
     };
 
     render() {
         //从组件的props属性中导入四个方法和一个变量
-        const { increment, decrement, counter } = this.props;
+        const {requestData,requestData2 } = this.props;
         return (
             <MainPanel title='index' >
-                Clicked: {counter} times
-                {' '}
-                <button onClick={increment}>+</button>
-                {' '}
-                <button onClick={decrement}>-</button>
-                {' '}
+                 Clicked: {requestData2} times
+                 hello: {requestData.message} 
                 <input type="button" onClick={this.getInform} className="btn btn-primary" value="search" />
             </MainPanel>
         );
@@ -34,15 +32,15 @@ class indexPage extends Component {
 //将state.counter绑定到props的counter
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        requestData2: state.requestData2,
+        requestData: state.requestData
     }
 };
 //将action的所有方法绑定到props上
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        increment:bindActionCreators(actions.increment,dispatch),
-        decrement:bindActionCreators(actions.decrement,dispatch),
-        test2:bindActionCreators(actions.test,dispatch)
+        test2:bindActionCreators(actions.testAPI,dispatch),
+        test3:bindActionCreators(actions.testAPI2,dispatch)
     }
 };
 
